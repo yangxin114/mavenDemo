@@ -6,7 +6,9 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.lw.mavendemo.sys.beans.Role;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RoleMapper {
 	
 	@Insert("insert sys_role (roleNo,roleName,description) values(${roleNo},${roleName},${description})")

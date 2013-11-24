@@ -1,11 +1,16 @@
 package org.lw.mavendemo.sys.service;
 
+import javax.annotation.Resource;
+
 import org.lw.mavendemo.sys.beans.User;
 import org.lw.mavendemo.sys.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
-	@Autowired
+	
+	@Resource
 	public UserMapper userMapper;
 
 	public User getUser(long id) {

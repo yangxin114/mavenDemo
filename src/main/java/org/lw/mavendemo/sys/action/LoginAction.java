@@ -1,5 +1,7 @@
 package org.lw.mavendemo.sys.action;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.lw.mavendemo.sys.service.UserService;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Controller;
 public class LoginAction {
 	private static  Log log = LogFactory.getLog(LoginAction.class);
 	
-	@Autowired
+	@Resource
 	private UserService service;
 
 	public static Log getLog() {

@@ -4,17 +4,19 @@ import java.util.List;
 
 import org.lw.mavendemo.sys.beans.Resource;
 import org.lw.mavendemo.sys.mapper.ResourceMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ResourceService {
 
-	@Autowired
+	@javax.annotation.Resource
 	private ResourceMapper resourceMapper;
 
 	/**
 	 * public List<Resource> getResByUser(String userNo) { return null; }
 	 **/
 
+	
 	public List<Resource> getAll() {
 		return resourceMapper.getAll();
 	}

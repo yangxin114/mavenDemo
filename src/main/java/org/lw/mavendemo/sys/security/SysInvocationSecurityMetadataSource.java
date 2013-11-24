@@ -12,13 +12,11 @@ import org.lw.mavendemo.sys.beans.Resource;
 import org.lw.mavendemo.sys.beans.Role;
 import org.lw.mavendemo.sys.service.ResourceService;
 import org.lw.mavendemo.sys.service.RoleService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.util.AntPathRequestMatcher;
-import org.springframework.security.web.util.RequestMatcher;
 
 /**
  * 该类两个作用： 1.初始化时，加载所有的资源清单 2.获得拥有当前资源访问权限的所有角色清单，即ConfigAttribute
@@ -29,9 +27,10 @@ import org.springframework.security.web.util.RequestMatcher;
 public class SysInvocationSecurityMetadataSource implements
 		FilterInvocationSecurityMetadataSource {
 
-	@Autowired
+	@javax.annotation.Resource
 	private ResourceService resourceService;
-	@Autowired
+	
+	@javax.annotation.Resource
 	private RoleService roleService;
 	
 	private AntPathRequestMatcher matcher;
@@ -39,7 +38,8 @@ public class SysInvocationSecurityMetadataSource implements
 	private boolean expire = false; // 是否已过期，当角色/资源信息变更后，应该设置该属性设置为true
 
 	public SysInvocationSecurityMetadataSource() {
-		loadResources();
+		//loadResources();
+		expireNow();
 	}
 
 	/**
@@ -93,6 +93,7 @@ public class SysInvocationSecurityMetadataSource implements
 		return true;
 	}
 
+	
 	public ResourceService getResourceService() {
 		return resourceService;
 	}

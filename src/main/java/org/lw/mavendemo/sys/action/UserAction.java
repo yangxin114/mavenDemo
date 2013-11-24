@@ -1,5 +1,7 @@
 package org.lw.mavendemo.sys.action;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.lw.mavendemo.sys.beans.User;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserAction {
 	private static  Log log = LogFactory.getLog(UserAction.class);
 
-	@Autowired
+	@Resource
 	private UserService service;
 
 	@RequestMapping("/user/add")

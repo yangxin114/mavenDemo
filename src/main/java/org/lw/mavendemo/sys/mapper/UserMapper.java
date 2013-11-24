@@ -3,8 +3,10 @@ package org.lw.mavendemo.sys.mapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.lw.mavendemo.sys.beans.User;
+import org.springframework.stereotype.Repository;
 
 
+@Repository
 public interface UserMapper {
 	
 	@Select("select * from sys_user where pk_id=#{id}")

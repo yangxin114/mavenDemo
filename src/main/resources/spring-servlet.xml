@@ -8,12 +8,8 @@
    
 	<!-- 设置使用注解的类所在的jar包 ，多个则用逗号分隔-->
 	<context:component-scan base-package="org.lw.mavendemo"></context:component-scan>
-	
-	
 	<!-- 默认的注解映射的支持 -->
 	<mvc:annotation-driven />
-	
-	
 
 	<bean id="velocityConfigurer"
 		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">

@@ -1,12 +1,17 @@
 package org.lw.mavendemo.sys.service;
 
 import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.lw.mavendemo.sys.beans.Role;
 import org.lw.mavendemo.sys.mapper.RoleMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class RoleService {
-	@Autowired
+	@Resource
 	private RoleMapper roleMapper;
 
 	public void insert(Role role) {
