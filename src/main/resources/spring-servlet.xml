@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd 
+   http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+   
+	<!-- 设置使用注解的类所在的jar包 ，多个则用逗号分隔-->
+	<context:component-scan base-package="org.lw.mavendemo"></context:component-scan>
+	
+	
+	<!-- 默认的注解映射的支持 -->
+	<mvc:annotation-driven />
+	
+	
+
+	<bean id="velocityConfigurer"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath" value="/WEB-INF/velo/" />
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">utf-8</prop>
+				<prop key="output.encoding">utf-8</prop>
+			</props>
+		</property>
+	</bean>
+	<mvc:view-controller path="/" view-name="index"/>
+
+	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<property name="cache" value="true" />
+		<property name="suffix" value=".vm" />
+		<property name="contentType">
+			<value>text/html;charset=UTF-8</value>
+		</property>
+	</bean>
+	
+	<!-- 国际化支持 -->
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename">
+            <value>i18n/messages</value>
+        </property>
+        <property name="cacheSeconds" value="-1"/>  
+    </bean>
+    
+	<!-- 资源类文件，不被DispatcherServlet处理 
+	location：访问地址 mapping：文件路径 -->
+	
+	<!-- mvc:resources 可以定义classpath，jar包中的资源,多个资源location用逗号分隔 -->
+	<mvc:resources mapping="/images/**" location="/images/"  cache-period="31556926"/>
+	<mvc:resources mapping="/js/**" location="/js/" cache-period="31556926"/>
+	<mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/>
+	<!-- <mvc:default-servlet-handler/>-->
+</beans> 
