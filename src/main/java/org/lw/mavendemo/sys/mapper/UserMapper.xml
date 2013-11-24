@@ -9,8 +9,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="userNo" />
 		<result property="userName" />
 	</resultMap>
-	<sql id=""></sql>
-	
 	<!-- 
 	<select id="getUser" parameterType="long" resultMap="UserMap">
 		select * from sys_user where pk_id=#{id};

@@ -1,8 +1,48 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	<http pattern="/css/**" security="none"></http>
+	<http pattern="/images/**" security="none"></http>
+	<http pattern="/js/**" security="none"></http>
+	<http pattern="/login" security="none"></http>
+	<http auto-config="true" access-denied-page="/error/accessDenied">
+		<form-login login-page="/login" authentication-failure-url="/loginfail"
+			default-target-url="/index" />
+		<logout logout-success-url="/login" />
+		<session-management>
+			<concurrency-control max-sessions="1" error-if-maximum-exceeded="false"/>
+		</session-management>
+		<http-basic />
+		<custom-filter ref="sysFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+
+	</http>
+
+	<beans:bean id="sysFilter"
+		class="org.lw.mavendemo.sys.security.SysFilterSecurityInterceptor">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="sysAccessDecisionManagerBean" />
+		<beans:property name="securityMetadataSource" ref="sysSecurityMetadataSource" />
+	</beans:bean>
 	
+	
+	<!-- 认证管理器，实现用户认证的入口，主要实现UserDetailsService接口即可 -->
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="sysUserDetailService">
+		<!-- 如果用户的密码采用加密的话，可以加点“盐” <password-encoder hash="md5" /> -->
+		</authentication-provider>
+	</authentication-manager>
+	<beans:bean id="sysUserDetailService"
+		class="org.lw.mavendemo.sys.security.SysUserDetailService" />
+
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
+	<beans:bean id="sysAccessDecisionManagerBean"
+		class="org.lw.mavendemo.sys.security.SysAccessDecisionManager">
+	</beans:bean>
+
+	<!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->
+	<beans:bean id="sysSecurityMetadataSource"
+		class="org.lw.mavendemo.sys.security.SysInvocationSecurityMetadataSource" />
+		
 </beans:beans>

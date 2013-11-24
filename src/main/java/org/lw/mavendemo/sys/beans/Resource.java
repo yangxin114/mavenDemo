@@ -5,9 +5,9 @@ public class Resource {
 	private long id;
 	private String resNo;
 	private String resName;
+	private String resUrl;
 	private int resType;
 	private String resDesc;
-	
 	
 	public long getId() {
 		return id;
@@ -38,6 +38,12 @@ public class Resource {
 	}
 	public void setResDesc(String resDesc) {
 		this.resDesc = resDesc;
+	}
+	public String getResUrl() {
+		return resUrl;
+	}
+	public void setResUrl(String resUrl) {
+		this.resUrl = resUrl;
 	}
 
 }

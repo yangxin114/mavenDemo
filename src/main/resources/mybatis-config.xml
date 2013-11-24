@@ -5,6 +5,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 		<typeAlias type="org.lw.mavendemo.sys.beans.User" alias="User"/>
+		<typeAlias type="org.lw.mavendemo.sys.beans.Role" alias="Role"/>
+		<typeAlias type="org.lw.mavendemo.sys.beans.Resource" alias="Resource"/>
+		<typeAlias type="org.lw.mavendemo.sys.beans.Permission" alias="Permission"/>
 	</typeAliases>
     <mappers>
     	<!-- 无效文件，采用注解方式配置 -->

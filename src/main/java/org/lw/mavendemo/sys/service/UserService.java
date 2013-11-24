@@ -2,23 +2,29 @@ package org.lw.mavendemo.sys.service;
 
 import org.lw.mavendemo.sys.beans.User;
 import org.lw.mavendemo.sys.mapper.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserService {
-	public UserMapper dao;
+	@Autowired
+	public UserMapper userMapper;
 
 	public User getUser(long id) {
-		return dao.getUser(id);
+		return userMapper.getUser(id);
 	}
 
-	public UserMapper getDao() {
-		return dao;
+	public User getUserByNo(String userNo) {
+		return null;
 	}
 
-	public void setDao(UserMapper dao) {
-		this.dao = dao;
+	public UserMapper getUserMapper() {
+		return userMapper;
 	}
-	
-	public void insert(User user){
-		dao.insert(user);
+
+	public void setUserMapper(UserMapper userMapper) {
+		this.userMapper = userMapper;
+	}
+
+	public void insert(User user) {
+		userMapper.insert(user);
 	}
 }

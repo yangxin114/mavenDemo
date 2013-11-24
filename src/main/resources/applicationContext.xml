@@ -34,9 +34,15 @@
     	<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
     
-    <!-- Service -->
+    <!-- Service
     <bean id="userService" class="org.lw.mavendemo.sys.service.UserService">
     	<property name="dao" ref="userMapper"></property>
     </bean>
+    <bean id="roleService" class="org.lw.mavendemo.sys.service.RoleService">
+    	<property name="dao" ref="userMapper"></property>
+    </bean>
+    <bean id="resourceService" class="org.lw.mavendemo.sys.service.ResourceService">
+    	<property name="dao" ref="userMapper"></property>
+    </bean> -->
     
 </beans>

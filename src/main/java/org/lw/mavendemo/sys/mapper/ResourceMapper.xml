@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.lw.mavendemo.sys.mapper.ResourceMapper">
+	<resultMap type="Resource" id="ResourceMap">
+		<id property="id" column="pk_id" />
+		<result property="resNo" />
+		<result property="resName" />
+		<result property="resUrl" />
+		<result property="resType" />
+		<result property="resDesc" />
+	</resultMap>
+</mapper>
