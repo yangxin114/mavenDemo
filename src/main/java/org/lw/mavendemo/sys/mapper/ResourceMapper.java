@@ -11,18 +11,18 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ResourceMapper {
-	@Insert("insert sys_resource (resNo,resName,resType,resUrl,resDesc) values(${resNo},${resName},${resType},${resUrl},${resDesc})")
+	@Insert("insert sys_resources (resNo,resName,resType,resUrl,resDesc) values(${resNo},${resName},${resType},${resUrl},${resDesc})")
 	public void insert(Role role);
 	
-	@Delete("delete from sys_resource where pk_id=${id}")
+	@Delete("delete from sys_resources where pk_id=${id}")
 	public void delete(long id);
 	
-	@Delete("delete from sys_resource where resNo=${resNo}")
-	public void delete(String roleNo);
+	@Delete("delete from sys_resources where resNo=${resNo}")
+	public void deleteByNo(String roleNo);
 	
-	@Select("select count(*) from sys_resource")
+	@Select("select count(*) from sys_resources")
 	public int countAll();
 	
-	@Select("select * from sys_resource")
+	@Select("select * from sys_resources")
 	public List<Resource> getAll();
 }

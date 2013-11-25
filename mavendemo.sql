@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/11/23 21:21:22                          */
+/* Created on:     2013/11/25 星期一 14:20:57                      */
 /*==============================================================*/
 
 
@@ -51,6 +51,7 @@ create table sys_resources
    pk_id                bigint not null auto_increment,
    resNo                varchar(20),
    resName              varchar(100),
+   resUrl               varchar(40),
    resType              smallint,
    resDesc              varchar(500),
    primary key (pk_id)
@@ -82,8 +83,8 @@ create unique index Index_roleNo on sys_role
 create table sys_role_permission
 (
    roleNo               varchar(20) not null,
-   permissionNo         varchar(20) not null,
-   primary key (roleNo, permissionNo)
+   permNo               varchar(20) not null,
+   primary key (roleNo, permNo)
 );
 
 /*==============================================================*/

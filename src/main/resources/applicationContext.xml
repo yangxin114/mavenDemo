@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<!-- 资源文件配置 -->
 	<bean id="prjProperties" 
@@ -26,23 +27,17 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <property name="typeAliasesPackage" value="org.lw.mavendemo.sys.beans"></property>
     </bean>
     
-    <!-- Mapper -->
-    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-    	<property name="mapperInterface" value="org.lw.mavendemo.sys.mapper.UserMapper"></property>
-    	<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    <!-- 自动扫描mybatis Mappers -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    	<property name="basePackage" value="org.lw.mavendemo.sys.mapper"></property>
     </bean>
     
-    <!-- Service
-    <bean id="userService" class="org.lw.mavendemo.sys.service.UserService">
-    	<property name="dao" ref="userMapper"></property>
-    </bean>
-    <bean id="roleService" class="org.lw.mavendemo.sys.service.RoleService">
-    	<property name="dao" ref="userMapper"></property>
-    </bean>
-    <bean id="resourceService" class="org.lw.mavendemo.sys.service.ResourceService">
-    	<property name="dao" ref="userMapper"></property>
-    </bean> -->
+    
+    <!-- 设置使用注解的类所在的jar包 ，多个则用逗号分隔-->
+	<context:component-scan base-package="org.lw.mavendemo"></context:component-scan>
+	<context:annotation-config/>
     
 </beans>

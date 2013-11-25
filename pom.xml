@@ -4,7 +4,7 @@
   <groupId>org.lw</groupId>
   <artifactId>mavendemo</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
   <name>mavendemo Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>	
@@ -143,6 +143,75 @@
     	<artifactId>spring-security-config</artifactId>
     	<version>3.1.4.RELEASE</version>
     </dependency>
+    <!-- 
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-jcl</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-log4j12</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>log4j-over-slf4j</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>nlog4j</artifactId>
+    	<version>1.2.25</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-nop</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-site</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>integration</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>jcl-over-slf4j</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>jul-to-slf4j</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-ext</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-migrator</artifactId>
+    	<version>1.7.5</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-parent</artifactId>
+    	<version>1.7.5</version>
+    	<type>pom</type>
+    </dependency>
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>osgi-over-slf4j</artifactId>
+    	<version>1.7.5</version>
+    	<type>bundle</type>
+    </dependency>
+     -->
   </dependencies>
   <build>
     <finalName>mavendemo</finalName>

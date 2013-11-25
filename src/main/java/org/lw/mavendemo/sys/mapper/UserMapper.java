@@ -5,7 +5,6 @@ import org.apache.ibatis.annotations.Select;
 import org.lw.mavendemo.sys.beans.User;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 public interface UserMapper {
 	

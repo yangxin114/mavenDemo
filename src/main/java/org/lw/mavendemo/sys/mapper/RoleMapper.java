@@ -18,7 +18,7 @@ public interface RoleMapper {
 	public void delete(long id);
 	
 	@Delete("delete from sys_role where roleNo=${roleNo}")
-	public void delete(String roleNo);
+	public void deleteByNo(String roleNo);
 	
 	@Select("select count(*) from sys_role")
 	public int countAll();

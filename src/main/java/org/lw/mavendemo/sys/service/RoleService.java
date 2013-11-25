@@ -23,7 +23,7 @@ public class RoleService {
 	}
 
 	public void delete(String roleNo) {
-		roleMapper.delete(roleNo);
+		roleMapper.deleteByNo(roleNo);
 	}
 
 	public List<Role> getRolesByUser(String userNo) {
